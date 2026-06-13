@@ -453,7 +453,7 @@ export default function PlayerScreen() {
   const videoReady = !!playbackEngine;
 
   const isVideoActive =
-    playbackMode === 'integrated' &&
+    (playbackMode === 'integrated' || playbackMode === 'embedded') &&
     playbackState !== 'idle' &&
     playbackState !== 'buffering' &&
     playbackState !== 'error';

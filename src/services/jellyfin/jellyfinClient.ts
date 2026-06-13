@@ -433,7 +433,7 @@ export async function getLatestItems(
   limit: number = 16,
   includeItemTypes?: string
 ): Promise<JellyfinItem[]> {
-  let url = `${normalizeServerUrl(serverUrl)}/Users/${userId}/Items/Latest?Limit=${limit}&Fields=Overview,MediaSources,MediaStreams,UserData`;
+  let url = `${normalizeServerUrl(serverUrl)}/Users/${userId}/Items/Latest?Limit=${limit}&Fields=Overview,MediaSources,MediaStreams`;
   if (parentId) {
     url += `&ParentId=${parentId}`;
   }
