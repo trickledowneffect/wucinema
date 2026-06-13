@@ -1,0 +1,6 @@
+name = "wucinema-subtitle-proxy"
+main = "src/worker.js"
+compatibility_date = "2024-09-23"
+
+# OS_API_KEY is stored as a Cloudflare Secret (wrangler secret put OS_API_KEY)
+# It is NEVER written in this file or any source file.

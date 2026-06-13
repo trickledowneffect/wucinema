@@ -1,0 +1,142 @@
+/* ============================================
+   WU-CINE — Cinematic Design System v3
+   Palette: Tyrian Purple · Ruby Red · Amber · Teal
+   ============================================ */
+
+/* ---- Font Imports ---- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+/* Outfit — sleek, geometric, modern sans-serif for UI headings and navigation. */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* Inter — clean and smooth for body copy and descriptions. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ===================================================
+     BACKGROUNDS — Deep purple-black, derived from 5F0540
+     =================================================== */
+  --bg-base:      #0b030c;   /* near-black plum-black */
+  --bg-surface-1: #100512;   /* dark purple-black */
+  --bg-surface-2: #160819;   /* slightly elevated */
+  --bg-surface-3: #1e0d21;   /* card background */
+  --bg-surface-4: #261329;   /* elevated surfaces */
+
+  /* ===================================================
+     TEXT — Warm white-violet
+     =================================================== */
+  --text-primary:   #f4edf8;               /* warm white-violet */
+  --text-secondary: #c9aada;               /* light lavender */
+  --text-muted:     #7c638c;               /* muted purple-grey */
+
+  /* ===================================================
+     ACCENT PALETTE — 5F0540 · 5F0540 · FB8B24 · E36414 · 0F4C5C
+     =================================================== */
+  /* Primary Action: Velvet Ruby Red (no Pornhub look) */
+  --accent-orange:       #5F0540;
+  --accent-orange-hover: #b8142f;
+  --accent-orange-dim:   rgba(95, 5, 64, 0.15);
+
+  /* Warm Secondary: Spanish Orange (used in gradients) */
+  --accent-peach:        #E36414;
+
+  /* Ruby Red */
+  --accent-ruby:         #5F0540;
+  --accent-ruby-dim:     rgba(95, 5, 64, 0.2);
+
+  /* Tyrian Purple — brand base */
+  --accent-purple:       #5F0540;
+  --accent-purple-light: #8b1a5e;
+  --accent-purple-dim:   rgba(95, 5, 64, 0.35);
+
+  /* Midnight Green / Teal — cool contrast accent */
+  --accent-teal:         #0F4C5C;
+  --accent-teal-light:   #166475;
+  --accent-teal-dim:     rgba(15, 76, 92, 0.2);
+
+  /* Legacy aliases (mapped to new premium palette) */
+  --accent-frost:        #166475;
+  --accent-frost-dim:    #0f4c5c;
+  --accent-ember:        #5F0540;
+  --accent-ember-bg:     rgba(95, 5, 64, 0.2);
+
+  /* ===================================================
+     GLASS — Frosted ruby-tinted glass surfaces
+     =================================================== */
+  --glass-bg:           rgba(16, 8, 18, 0.78);
+  --glass-bg-solid:     #100512;
+  --glass-border:       1px solid rgba(95, 5, 64, 0.12);
+  --glass-border-hover: 1px solid rgba(95, 5, 64, 0.25);
+  --glass-blur:         blur(20px);
+
+  /* ===================================================
+     SPACING (8px grid)
+     =================================================== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  28px;
+  --space-8:  32px;
+  --space-9:  40px;
+  --space-10: 48px;
+  --space-11: 64px;
+  --space-12: 96px;
+
+  /* ===================================================
+     RADII
+     =================================================== */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-full: 999px;
+
+  /* ===================================================
+     FONTS
+     =================================================== */
+  /* Playfair Display — luxury movie/show titles */
+  --font-cinematic:    'Playfair Display', Georgia, serif;
+  /* Outfit — sleek, premium, for UI section headings and titles */
+  --font-heading:      'Outfit', system-ui, sans-serif;
+  /* Inter — warm, for all UI labels, buttons, nav */
+  --font-body:         'Inter', system-ui, sans-serif;
+  /* Inter — readable for synopses and descriptions */
+  --font-description:  'Inter', system-ui, sans-serif;
+
+  /* ===================================================
+     FONT SIZES
+     =================================================== */
+  --text-xs:   0.72rem;
+  --text-sm:   0.8125rem;
+  --text-base: 0.875rem;
+  --text-lg:   1rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  2rem;
+  --text-4xl:  2.5rem;
+  --text-5xl:  3.5rem;
+
+  /* ===================================================
+     TRANSITIONS
+     =================================================== */
+  --transition-fast:   0.12s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow:   0.3s ease;
+
+  /* ===================================================
+     SHADOWS — now glow with amber, not orange
+     =================================================== */
+  --shadow-glow:        0 0 20px rgba(95, 5, 64, 0.18);
+  --shadow-glow-strong: 0 0 40px rgba(95, 5, 64, 0.3);
+  --shadow-ruby:        0 0 20px rgba(95, 5, 64, 0.25);
+  --shadow-purple:      0 0 24px rgba(95, 5, 64, 0.4);
+  --shadow-teal:        0 0 20px rgba(15, 76, 92, 0.35);
+  --shadow-soft:        0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-card:        0 2px 12px rgba(0, 0, 0, 0.3);
+
+  /* ===================================================
+     LAYOUT
+     =================================================== */
+  --sidebar-width:  220px;
+  --topbar-height:  60px;
+}

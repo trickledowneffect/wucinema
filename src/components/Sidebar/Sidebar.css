@@ -1,0 +1,152 @@
+/* =============================================
+   Sidebar — Minimalist Premium Navigation
+   Palette: Tyrian Purple · Amber · Teal
+   ============================================= */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--bg-surface-1);
+  border-right: var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+/* ---- Header ---- */
+.sidebar-header {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  border-bottom: var(--glass-border);
+}
+
+/* Logo icon — clean, geometric, industrial style */
+.sidebar-logo-img {
+  width: 44px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  /* subtle blue/industrial shadow instead of intense purple */
+  filter: drop-shadow(0 0 8px rgba(0, 115, 183, 0.3));
+  transition: transform var(--transition-normal);
+}
+
+.sidebar-logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* Wordmark text — clean, transparent white */
+.sidebar-wordmark-img {
+  height: 16px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.95;
+  transition: opacity var(--transition-normal);
+}
+
+.sidebar-wordmark-img:hover {
+  opacity: 1;
+}
+
+/* ---- Nav ---- */
+.sidebar-nav {
+  flex: 1;
+  padding: 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.sidebar-nav-bottom {
+  padding: 8px;
+  border-top: var(--glass-border);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.nav-item:hover {
+  background: rgba(145, 80, 175, 0.06);
+  color: var(--text-secondary);
+}
+
+/* Active — ruby/amber glow state */
+.nav-item.active {
+  background: rgba(95, 5, 64, 0.25);
+  color: var(--text-primary);
+}
+
+/* Glowing left bar — ruby to amber gradient */
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 18px;
+  background: linear-gradient(to bottom, #5F0540, #5F0540);
+  border-radius: 0 3px 3px 0;
+  box-shadow: 0 0 10px rgba(95, 5, 64, 0.5);
+}
+
+.nav-item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity var(--transition-normal);
+}
+
+.nav-item.active .nav-item-icon {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(95, 5, 64, 0.5));
+}
+
+.nav-item:hover .nav-item-icon {
+  opacity: 0.75;
+}
+
+.sidebar-badge {
+  margin-left: auto;
+  background: var(--accent-orange);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-glow);
+  line-height: 1.2;
+  animation: sidebar-badge-pulse 2s infinite alternate;
+}
+
+@keyframes sidebar-badge-pulse {
+  from { box-shadow: 0 0 4px rgba(95, 5, 64, 0.4); }
+  to   { box-shadow: 0 0 12px rgba(95, 5, 64, 0.8); }
+}

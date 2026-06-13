@@ -1,0 +1,106 @@
+/* ============================================
+   HeroBanner — Full-width featured hero section
+   ============================================ */
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  margin-bottom: var(--space-8);
+}
+
+/* ---- Backdrop ---- */
+
+.hero-banner-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-banner-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to right,
+      rgba(22, 18, 24, 0.95) 0%,
+      rgba(22, 18, 24, 0.7) 40%,
+      rgba(22, 18, 24, 0.3) 70%,
+      rgba(22, 18, 24, 0.8) 100%
+    ),
+    linear-gradient(
+      to top,
+      var(--bg-base) 0%,
+      transparent 40%
+    );
+}
+
+/* ---- Content ---- */
+
+.hero-banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-12) var(--space-8) var(--space-8);
+  min-height: 500px;
+}
+
+/* ---- Chips row ---- */
+
+.hero-banner-chips {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.hero-banner-chip {
+  background: rgba(255, 255, 255, 0.08);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---- Title ---- */
+
+.hero-banner-title {
+  font-family: var(--font-cinematic);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 600;
+  font-style: normal;
+  color: white;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-4);
+  max-width: 600px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- Overview ---- */
+
+.hero-banner-overview {
+  font-family: var(--font-description);
+  font-size: 0.95rem;
+  color: rgba(233, 224, 232, 0.8);
+  line-height: 1.78;
+  max-width: 500px;
+  margin-bottom: var(--space-6);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Action buttons ---- */
+
+.hero-banner-actions {
+  display: flex;
+  gap: var(--space-3);
+}

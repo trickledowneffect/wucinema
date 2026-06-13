@@ -1,0 +1,104 @@
+.media-grid {
+  padding: 0 var(--space-8) var(--space-8);
+}
+
+.media-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-5);
+}
+
+.media-grid-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.media-grid-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.media-grid-arrows {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.media-grid-arrow-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+  padding: 0;
+}
+
+.media-grid-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.media-grid-arrow-btn:active {
+  transform: scale(0.95);
+}
+
+.media-grid-see-all {
+  color: var(--accent-orange);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.media-grid-see-all:hover {
+  color: var(--accent-orange-hover);
+}
+
+.media-grid-scroll {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.media-grid-scroll:hover {
+  scrollbar-color: var(--bg-surface-4) transparent;
+}
+
+/* WebKit scrollbar styling */
+.media-grid-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.media-grid-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.media-grid-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: var(--radius-full);
+}
+
+.media-grid-scroll:hover::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-4);
+}

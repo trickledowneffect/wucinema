@@ -1,0 +1,85 @@
+/* ============================================
+   LandscapeCard — Horizontal card (16:9 ratio)
+   ============================================ */
+
+.landscape-card {
+  width: 320px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.landscape-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ---- Image ---- */
+
+.landscape-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--bg-surface-2);
+  position: relative;
+}
+
+/* ---- Overlay ---- */
+
+.landscape-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.1) 60%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+}
+
+/* ---- Badges ---- */
+
+.landscape-card-badges {
+  display: flex;
+  gap: 4px;
+  margin-bottom: var(--space-2);
+}
+
+/* ---- Text ---- */
+
+.landscape-card-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: white;
+}
+
+.landscape-card-subtitle {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+/* ---- Progress bar ---- */
+
+.landscape-card-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.landscape-card-progress-bar {
+  height: 100%;
+  background: var(--accent-orange);
+}

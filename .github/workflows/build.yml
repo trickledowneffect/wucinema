@@ -1,0 +1,77 @@
+name: Build Windows Installers
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-pc-windows-msvc, x86_64-pc-windows-msvc
+
+      - name: Download and extract MPV sidecars
+        shell: pwsh
+        run: |
+          mkdir -p src-tauri/binaries
+          
+          # Download & extract Windows ARM64 mpv sidecar
+          Write-Host "Downloading Windows ARM64 MPV sidecar..."
+          Invoke-WebRequest -Uri "https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20260610/mpv-aarch64-20260610-git-304426c.7z" -OutFile "mpv-arm64.7z"
+          7z x mpv-arm64.7z -oextracted-arm64 -y
+          Move-Item "extracted-arm64/mpv.exe" "src-tauri/binaries/mpv-aarch64-pc-windows-msvc.exe"
+          
+          # Download & extract Windows x64 mpv sidecar
+          Write-Host "Downloading Windows x64 MPV sidecar..."
+          Invoke-WebRequest -Uri "https://github.com/shinchiro/mpv-winbuild-cmake/releases/download/20260610/mpv-x86_64-20260610-git-304426c.7z" -OutFile "mpv-x64.7z"
+          7z x mpv-x64.7z -oextracted-x64 -y
+          Move-Item "extracted-x64/mpv.exe" "src-tauri/binaries/mpv-x86_64-pc-windows-msvc.exe"
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build Tauri ARM64 Application
+        run: npx tauri build --target aarch64-pc-windows-msvc
+
+      - name: Build Tauri x64 Application
+        run: npx tauri build --target x86_64-pc-windows-msvc
+
+      - name: Upload ARM64 Installer (MSI)
+        uses: actions/upload-artifact@v4
+        with:
+          name: wucine-windows-arm64-msi
+          path: src-tauri/target/aarch64-pc-windows-msvc/release/bundle/msi/*.msi
+
+      - name: Upload ARM64 Setup (EXE)
+        uses: actions/upload-artifact@v4
+        with:
+          name: wucine-windows-arm64-exe
+          path: src-tauri/target/aarch64-pc-windows-msvc/release/bundle/nsis/*.exe
+
+      - name: Upload x64 Installer (MSI)
+        uses: actions/upload-artifact@v4
+        with:
+          name: wucine-windows-x64-msi
+          path: src-tauri/target/x86_64-pc-windows-msvc/release/bundle/msi/*.msi
+
+      - name: Upload x64 Setup (EXE)
+        uses: actions/upload-artifact@v4
+        with:
+          name: wucine-windows-x64-exe
+          path: src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe

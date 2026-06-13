@@ -1,0 +1,37 @@
+.toggle {
+  width: 44px;
+  height: 24px;
+  background: var(--bg-surface-4);
+  border-radius: var(--radius-full);
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transition-normal);
+  border: none;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: all var(--transition-normal);
+}
+
+.toggle--active {
+  background: var(--accent-orange);
+}
+
+.toggle--active::after {
+  transform: translateX(20px);
+  background: white;
+}
+
+.toggle:focus-visible {
+  box-shadow: 0 0 0 3px rgba(95, 5, 64, 0.3);
+}

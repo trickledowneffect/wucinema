@@ -1,0 +1,69 @@
+.movies-screen { padding: var(--space-8); }
+.movies-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-6); }
+.movies-title { font-family: var(--font-heading); font-size: var(--text-3xl); font-weight: 700; color: var(--text-primary); }
+.movies-controls { display: flex; gap: var(--space-3); align-items: center; }
+.movies-sort-btn {
+  display: flex; align-items: center; gap: var(--space-2);
+  padding: var(--space-2) var(--space-4); background: var(--glass-bg);
+  border: var(--glass-border); border-radius: var(--radius-sm);
+  color: var(--text-muted); font-size: var(--text-sm); cursor: pointer;
+  transition: all var(--transition-normal); font-family: var(--font-body);
+}
+.movies-sort-btn:hover { border-color: rgba(145, 80, 175, 0.15); color: var(--text-primary); }
+.movies-count { font-size: var(--text-sm); color: var(--text-muted); }
+.movies-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--space-5);
+}
+
+.movies-screen-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.movies-view-toggle {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-8);
+  z-index: 100;
+  display: flex;
+  background: var(--bg-surface-2);
+  border: var(--glass-border);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  backdrop-filter: var(--glass-blur);
+}
+
+.movies-view-toggle.in-grid {
+  /* In grid view, header is there so adjust position to not overlap Sort/Filter */
+  position: relative;
+  top: auto;
+  right: auto;
+  margin-bottom: var(--space-4);
+  align-self: flex-end;
+  margin-right: var(--space-8);
+}
+
+.movies-view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.movies-view-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.movies-view-btn.active {
+  background: var(--accent-orange);
+  color: white;
+  box-shadow: var(--shadow-glow);
+}

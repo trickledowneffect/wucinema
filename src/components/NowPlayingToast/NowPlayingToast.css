@@ -1,0 +1,90 @@
+.now-playing-toast {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-8);
+  z-index: 1000;
+  background: rgba(22, 18, 24, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(95, 5, 64, 0.3);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 16px rgba(95, 5, 64, 0.1);
+  animation: slideUpToast 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideUpToast {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.now-playing-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.now-playing-indicator {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-orange-dim);
+  color: var(--accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playing-icon {
+  animation: pulseIcon 2s infinite ease-in-out;
+}
+
+@keyframes pulseIcon {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.now-playing-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.now-playing-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--accent-orange);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.now-playing-title {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.now-playing-stop-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  transition: all 0.2s;
+}
+
+.now-playing-stop-btn:hover {
+  background: rgba(95, 5, 64, 0.2);
+  border-color: rgba(95, 5, 64, 0.4);
+  color: #fff;
+}
